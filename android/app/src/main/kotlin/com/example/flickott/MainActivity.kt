@@ -1,4 +1,4 @@
-package com.example.flickott
+package com.prtksunal.flickott
 
 import io.flutter.embedding.android.FlutterActivity
 
