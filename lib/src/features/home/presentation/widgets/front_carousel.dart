@@ -41,7 +41,7 @@ class FrontCarousel extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               vertical: 10.0, horizontal: 20.0),
                           child: Text(
-                            'No. ${imgList.indexOf(item)} image',
+                            'Some show ${imgList.indexOf(item)}',
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 20.0,
