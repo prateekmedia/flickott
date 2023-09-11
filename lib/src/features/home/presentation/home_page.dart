@@ -1,3 +1,4 @@
+import 'package:flickott/src/features/home/presentation/widgets/front_carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -71,12 +72,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 selectedIndex: 0,
                 labelType: NavigationRailLabelType.all,
               ),
-            const Expanded(
+            Expanded(
               child: Center(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Text(
+                    FrontCarousel(),
+                    const Text(
                       "We FLICK OTT, so you don't have to",
                     ),
                   ],
