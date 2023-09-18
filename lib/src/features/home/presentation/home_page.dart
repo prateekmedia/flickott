@@ -1,6 +1,7 @@
 import 'package:flickott/src/features/home/presentation/widgets/front_carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flickott/init.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -13,6 +14,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final isDesktop = MediaQuery.sizeOf(context).width > 800;
+    var titles = init();
     return Scaffold(
       appBar: isDesktop
           ? null
@@ -81,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     const Text(
                       "We FLICK OTT, so you don't have to",
                     ),
+                    Text(titles[0].title)
                   ],
                 ),
               ),
