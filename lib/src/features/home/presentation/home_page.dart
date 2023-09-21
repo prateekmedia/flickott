@@ -1,20 +1,23 @@
 import 'package:flickott/src/features/home/presentation/widgets/front_carousel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flickott/init.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatefulHookConsumerWidget {
   const MyHomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  ConsumerState<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends ConsumerState<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final isDesktop = MediaQuery.sizeOf(context).width > 800;
-    var titles = init();
+    final titles = useFuture(init());
+
     return Scaffold(
       appBar: isDesktop
           ? null
@@ -83,7 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     const Text(
                       "We FLICK OTT, so you don't have to",
                     ),
-                    Text(titles[0].title)
+                    // Use switch to render error and loading states
+                    if (titles.data != null) Text(titles.data![0].title)
                   ],
                 ),
               ),

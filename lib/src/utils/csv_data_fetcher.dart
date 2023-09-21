@@ -16,21 +16,22 @@ class CsvDataFetcher {
       final thumbnailURL = row[0];
       final title = row[1];
       final director = row[9];
-      final year = int.tryParse(row[2] ?? '') ?? 0;
-      final rating = double.tryParse(row[6] ?? '') ?? 0.0;
+      final year = int.tryParse(row[2]?.toString() ?? '') ?? 0;
+      final rating = double.tryParse(row[6]?.toString() ?? '') ?? 0.0;
       final runtime = row[4];
       final genre = row[5];
       final certificate = row[3];
 
       final movie = TitleModel(
-          title: title,
-          director: director,
-          year: year,
-          rating: rating,
-          thumbnailUrl: thumbnailURL,
-          runTime: runtime,
-          genre: genre,
-          certificate: certificate);
+        title: title.toString(),
+        director: director,
+        year: year,
+        rating: rating,
+        thumbnailUrl: thumbnailURL,
+        runTime: runtime,
+        genre: genre,
+        certificate: certificate.toString(),
+      );
 
       titles.add(movie);
     }
